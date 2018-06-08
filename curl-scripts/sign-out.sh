@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "https://wdi-library-api.herokuapp.com/sign-out" \
+curl "http://tic-tac-toe.wdibos.com" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json" \
