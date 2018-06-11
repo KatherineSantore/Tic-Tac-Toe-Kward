@@ -27,7 +27,19 @@ const onSignIn = function (event) {
     .catch(authUi.signInError)
 }
 
-const SignOut = function (event) {
+const onChangePassword = function (event) {
+  event.preventDefault()
+
+  const data = getFormFields(event.target)
+
+  console.log('data is', data)
+
+  authApi.changePassword(data)
+    .then(authUi.changePasswordSuccess)
+    .catch(authUi.changePasswordError)
+}
+
+const onSignOut = function (event) {
   event.preventDefault()
   authApi.signOut()
     .then(authUi.signOutSuccess)
@@ -37,5 +49,6 @@ const SignOut = function (event) {
 module.exports = {
   onSignUp,
   onSignIn,
-  SignOut
+  onSignOut,
+  onChangePassword
 }
