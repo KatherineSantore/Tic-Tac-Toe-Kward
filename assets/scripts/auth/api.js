@@ -40,9 +40,19 @@ const signOut = function (data) {
     }
   })
 }
+const newMove = function (move) {
+  return $.ajax({
+    url: 'https://tic-tac-toe-wdi.herokuapp.com/games/:id',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp: signUp,
   signIn: signIn,
   signOut: signOut,
-  changePassword: changePassword
+  changePassword: changePassword,
+  newMove: newMove
 }

@@ -17,6 +17,7 @@
         <div id='gameStatus'>
           <p> Try to Get Three in a Row </p>
         </div>
+        <div class="board">
 <div class="rowA">
           <div class="col" id=0> </div>
           <div class="col" id=1> </div>
@@ -34,8 +35,11 @@
           <div class="col" id=7> </div>
           <div class="col" id=8> </div>
         </div>
-
-        <div class="form">
+      </div>
+        <br>
+          <button id='resetGame' type='button' > New Game </button>
+          <br>
+          <div class="form">
          <h3> Sign Up </h3>
           <form id='sign-up-form'>
             <input name="credentials[email]" placeholder="Email" type="email"/>
@@ -58,6 +62,7 @@
             <input name="passwords[new]" type="password" placeholder="New Password"/>
             <button type="submit">Change Password</button>
           </form>
+
 
            <button id='sign-out'> Sign Out </button>
           <br>

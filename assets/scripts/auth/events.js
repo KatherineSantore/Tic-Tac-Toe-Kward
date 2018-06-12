@@ -45,6 +45,12 @@ const onSignOut = function (event) {
     .then(authUi.signOutSuccess)
     .catch(authUi.signOutFailure)
 }
+// const onNewMove = function () {
+//   event.preventDefault()
+//   api.storeNewMove()
+//     .then()
+//     .catch()
+// }
 
 // const onNewGame = function (event) {
 //   event.preventDefault()
