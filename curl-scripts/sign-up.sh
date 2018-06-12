@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-curl "http://tic-tac-toe.wdibos.com" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

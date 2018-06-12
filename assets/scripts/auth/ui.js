@@ -2,7 +2,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('signUpResponse is', signUpResponse)
+  console.log('You were successfully signed up')
 }
 const signUpError = function (error) {
   console.log('Error in sign up is', error)
@@ -15,10 +15,18 @@ const signInSuccess = function (response) {
 const signInError = function (error) {
   console.log('Error in sign in is', error)
 }
+
+const changePasswordSuccess = function (response) {
+  console.log('response is', response)
+}
+
+const changePasswordError = function (error) {
+  console.log('Error in sign in is', error)
+}
+
 const signOutSuccess = function (response) {
   console.log('You were successfully signed out')
   delete store.user
-  console.log('store after sign out is ', store)
 }
 const signOutFailure = function (error) {
   console.log('something went wrong. Your error:', error)
@@ -30,6 +38,8 @@ module.exports = {
   signInSuccess,
   signInError,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordError
 
 }

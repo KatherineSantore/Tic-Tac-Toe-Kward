@@ -5,7 +5,7 @@ const store = require('../store')
 const signUp = function (data) {
   return $.ajax({
     method: 'POST',
-    url: 'http://tic-tac-toe.wdibos.com/sign-up',
+    url: 'https://tic-tac-toe-wdi.herokuapp.com/sign-up',
     data: data
   })
 }
@@ -13,24 +13,36 @@ const signUp = function (data) {
 const signIn = function (data) {
   return $.ajax({
     method: 'POST',
-    url: 'http://tic-tac-toe.wdibos.com/sign-in',
+    url: 'https://tic-tac-toe-wdi.herokuapp.com/sign-in',
     data: data
+  })
+}
+
+const changePassword = function (data) {
+  console.log('user is', store.user)
+  return $.ajax({
+    method: 'PATCH',
+    url: 'https://tic-tac-toe-wdi.herokuapp.com/change-password',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 const signOut = function (data) {
   return $.ajax({
     method: 'DELETE',
-    url: 'http://tic-tac-toe.wdibos.com/sign-out',
+    url: 'https://tic-tac-toe-wdi.herokuapp.com/sign-out',
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-    // add token
   })
 }
 module.exports = {
   signUp: signUp,
   signIn: signIn,
-  signOut: signOut
+  signOut: signOut,
+  changePassword: changePassword
 }

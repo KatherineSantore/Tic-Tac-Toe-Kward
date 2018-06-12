@@ -46,9 +46,15 @@ const onSignOut = function (event) {
     .catch(authUi.signOutFailure)
 }
 
+// const onNewGame = function (event) {
+//   event.preventDefault()
+//   console.log('board reset')
+//   newGame()
+// }
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword
+  // onNewGame
 }
