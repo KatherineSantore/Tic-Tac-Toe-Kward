@@ -1,10 +1,11 @@
 'use strict'
 const store = require('../store')
+const config = require('../config')
 
 const newGame = function () {
   return $.ajax({
     method: 'POST',
-    url: 'https://tic-tac-toe-wdi.herokuapp.com/games',
+    url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -14,7 +15,7 @@ const newGame = function () {
 const displayGame = function () {
   return $.ajax({
     method: 'GET',
-    url: 'https://tic-tac-toe-wdi.herokuapp.com/games/;id',
+    url: config.apiUrl + '/:id',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -24,7 +25,7 @@ const displayGame = function () {
 const updateGame = function () {
   return $.ajax({
     method: 'PATCH',
-    url: 'https://tic-tac-toe-wdi.herokuapp.com/games/;id',
+    url: config.apiUrl + '/:id',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -34,7 +35,7 @@ const updateGame = function () {
 const getStats = function () {
   return $.ajax({
     method: 'GET',
-    url: 'https://tic-tac-toe-wdi.herokuapp.com/games',
+    url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
