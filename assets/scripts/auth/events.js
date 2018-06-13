@@ -25,7 +25,6 @@ const onSignIn = function (event) {
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .then(gamesEvents.onNewGame)
-    .then()
     .catch(authUi.signInError)
 }
 
