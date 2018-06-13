@@ -15,10 +15,14 @@ $(() => {
   // your JS code goes here
   // Create Empty Board in JS, Add to Board, Turn rotates between x and o
   //  Can not choose already occupied spots, Check Board for Winner
+  $(window).on('load', function () {
+    $('#myModal').modal('show')
+  })
 
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#resetGame').on('click', gamesEvents.onNewGame)
+  $('#statsButton').on('click', gamesEvents.onGetStats)
 })

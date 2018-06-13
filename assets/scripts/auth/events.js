@@ -3,11 +3,11 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const authApi = require('./api')
 const authUi = require('./ui')
+const gamesEvents = require('../games/events')
 
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('the form was submitted')
-
   const data = getFormFields(event.target)
 
   authApi.signUp(data)
@@ -24,6 +24,8 @@ const onSignIn = function (event) {
 
   authApi.signIn(data)
     .then(authUi.signInSuccess)
+    .then(gamesEvents.onNewGame)
+    .then()
     .catch(authUi.signInError)
 }
 
@@ -45,22 +47,9 @@ const onSignOut = function (event) {
     .then(authUi.signOutSuccess)
     .catch(authUi.signOutFailure)
 }
-// const onNewMove = function () {
-//   event.preventDefault()
-//   api.storeNewMove()
-//     .then()
-//     .catch()
-// }
-
-// const onNewGame = function (event) {
-//   event.preventDefault()
-//   console.log('board reset')
-//   newGame()
-// }
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword
-  // onNewGame
 }

@@ -10,6 +10,7 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
+
 <body>
 
         <h1>Tic Tac Toe </h1>
@@ -38,6 +39,11 @@
       </div>
         <br>
           <button id='resetGame' type='button' > New Game </button>
+          <br><br>
+
+          <div id="gameStats">  </div>
+
+          <button id='statsButton' type='button' > Game Stats </button>
           <br>
           <div class="form">
          <h3> Sign Up </h3>
@@ -56,6 +62,7 @@
             <button type="submit">Log In</button>
           </form>
 
+        <div id='afterSignIn'>
           <h3> Change Password </h3>
           <form id='change-password-form'>
             <input name="passwords[old]" placeholder="Old Password" type="password"/>
@@ -65,6 +72,7 @@
 
 
            <button id='sign-out'> Sign Out </button>
+         </div>
           <br>
         </div>
   </body>
