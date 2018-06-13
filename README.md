@@ -1,4 +1,24 @@
 
+This game was created using HTML, JavaScript, CSS, SCSS, JQUERY and AJAX.
+
+  I created a wireframe for what I wanted this project to look like before starting.
+  <a href="https://imgur.com/P9veXzC"><img src="https://i.imgur.com/P9veXzC.jpg" title="source: imgur.com" /></a>
+  but ending up modifying where my sign-in is to make the game board more viewable to the players.
+
+  My user stories were:
+  User stories:
+
+As a developer I want to create a tic tac toe game I can invite users to.
+As a gamer, I want to receive a URL where I can access a tic tac toe game.
+As a user I would like to log in so that I can keep track of my score and wins
+As a user, I would like to know my wins of total games I have played
+As a user, I would like to know when the game is over and someone has won.
+
+ Unsolved problems I would like to fix in future iterations are:
+ - making my tic-tac-toe boxes not move when clicked on
+ - creating a modal that pops up for sign-in and sign-up so users are prompted to do this first.
+   I personally kept forgetting to sign-in before playing and information will not be sent to the API until this happens
+   and I think users will do the same.
 
 
 ## Structure
