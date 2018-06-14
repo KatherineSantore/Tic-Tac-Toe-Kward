@@ -21,7 +21,7 @@ const onSignIn = function (event) {
   console.log('the form was submitted')
   const data = getFormFields(event.target)
   $('#sign-in-form').html('You are signed in!')
-
+  $('#change-password-form').show()
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .then(gamesEvents.onNewGame)
@@ -41,6 +41,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
+  $('#sign-out').html('You are signed out!')
   authApi.signOut()
     .then(authUi.signOutSuccess)
     .catch(authUi.signOutFailure)
