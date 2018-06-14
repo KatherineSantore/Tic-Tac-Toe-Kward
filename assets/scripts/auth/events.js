@@ -9,6 +9,7 @@ const onSignUp = function (event) {
   event.preventDefault()
   console.log('the form was submitted')
   const data = getFormFields(event.target)
+  $('#sign-up-form').html('You are signed up!')
 
   authApi.signUp(data)
     .then(authUi.signUpSuccess)
@@ -18,9 +19,8 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   console.log('the form was submitted')
-
   const data = getFormFields(event.target)
-  console.log('data is', data)
+  $('#sign-in-form').html('You are signed in!')
 
   authApi.signIn(data)
     .then(authUi.signInSuccess)
@@ -30,9 +30,8 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-
   const data = getFormFields(event.target)
-
+  $('#change-password-form').html('Your password is changed!')
   console.log('data is', data)
 
   authApi.changePassword(data)
