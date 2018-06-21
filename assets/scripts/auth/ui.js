@@ -2,18 +2,19 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('You were successfully signed up')
+  $('#announcer').html('You are signed up! Now sign-in to play!')
+  $('#sign-up-form').hide()
 }
-const signUpError = function (error) {
-  console.log('Error in sign up is', error)
+const signUpError = function () {
+  $('#auth_feedback').html('You are not signed up!')
 }
 
 const signInSuccess = function (response) {
-  console.log('response is', response)
+  $('#announcer').html('You are signed in!').toggle(6000)
   store.user = response.user
 }
-const signInError = function (error) {
-  console.log('Error in sign in is', error)
+const signInError = function (response) {
+  $('#auth_feedback').html('Please try again!')
 }
 
 const changePasswordSuccess = function (response) {

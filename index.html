@@ -12,11 +12,31 @@
 </head>
 
 <body>
+  <div class="form">
+    <div id="announcer"> <h2>Sign Up or Sign In to Begin Playing! </h2> </div>
+  <div id="showFirst">
+ <div id="auth_feedback"> </div>
+  <form id='sign-up-form'>
+     <h3> Sign Up </h3>
+    <input name="credentials[email]" placeholder="Email" type="email"/>
+    <input name="credentials[password]" type="password" placeholder="Password"/>
+    <input name="credentials[password_confirmation]" placeholder="Password Confirmation"
+    type="password"/>
+    <button type="submit">Sign up</button>
+  </form>
 
+  <h3> Sign In </h3>
+  <form id='sign-in-form'>
+    <input name="credentials[email]" placeholder="Email" type="email"/>
+    <input name="credentials[password]" type="text" placeholder="Password"/>
+    <button type="submit">Log In</button>
+  </div>
+  </form>
+  <br>
         <h1>Tic Tac Toe </h1>
 
         <div id='gameStatus'>
-          <p> Try to Get Three in a Row </p>
+          <p>  </p>
         </div>
         <div class="board">
 <div class="rowA">
@@ -38,6 +58,7 @@
         </div>
       </div>
         <br>
+        <div id=hidden>
           <button id='resetGame' type='button' > New Game </button>
           <br><br>
 
@@ -45,32 +66,16 @@
 
           <button id='statsButton' type='button' > Game Stats </button>
           <br>
-          <div class="form">
-         <h3> Sign Up </h3>
-          <form id='sign-up-form'>
-            <input name="credentials[email]" placeholder="Email" type="email"/>
-            <input name="credentials[password]" type="text" placeholder="Password"/>
-            <input name="credentials[password_confirmation]" placeholder="Password Confirmation"
-            type="password"/>
-            <button type="submit">Sign up</button>
-          </form>
-
-          <h3> Sign In </h3>
-          <form id='sign-in-form'>
-            <input name="credentials[email]" placeholder="Email" type="email"/>
-            <input name="credentials[password]" type="text" placeholder="Password"/>
-            <button type="submit">Log In</button>
-          </form>
 
           <form id='change-password-form'>
-              <h3> Change Password </h3>
+              <h2> Change Password </h2>
             <input name="passwords[old]" placeholder="Old Password" type="password"/>
             <input name="passwords[new]" type="password" placeholder="New Password"/>
             <button type="submit">Change Password</button>
           </form>
            <button id='sign-out'> Sign Out </button>
-         </div>
-          <br>
+          </div>
+          </div>
   </body>
 
 </html>

@@ -5,8 +5,8 @@ const store = require('../store')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
-const playerOne = 'X'
-const playerTwo = 'O'
+const playerOne = 'x'
+const playerTwo = 'o'
 // $(document).ready(function () {
 let turnCount = 0
 let activePlayer = null
@@ -21,24 +21,41 @@ const playerTurn = function () {
   }
 }
 
+const onUpdateGame = (cellId, letter, boolean) => {
+  // console.log('store.game.cells is ' + store.game.cells)
+  // console.log('here')
+  // turnCount = 0
+  api.updateGame(cellId, letter, boolean)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
+}
+
 const checkForWin = function () {
   for (let i = 0; i < 9; i++) {
     if (store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2] && store.game.cells[2] !== '') {
+      store.game.over = true
       $('#gameStatus').html(activePlayer + ' wins!')
     } else if (store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5] && store.game.cells[5] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8] && store.game.cells[8] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6] && store.game.cells[6] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7] && store.game.cells[7] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8] && store.game.cells[8] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8] && store.game.cells[8] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6] && store.game.cells[6] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
+      store.game.over = true
     } else if (store.game.cells !== '') {
       $('#gameStatus').html('No winner yet!')
     }
@@ -50,26 +67,32 @@ const checkForDraw = function () {
   (store.game.cells[4] !== '') && (store.game.cells[5] !== '') && (store.game.cells[6] !== '') && (store.game.cells[7] !== '') &&
   (store.game.cells[8] !== '')) {
     $('#gameStatus').html('It\'s a draw!')
+    store.game.over = true
   }
 }
 
 $('.col').on('click', function () {
-  turnCount += 1
-  playerTurn()
-  console.log('activePlayer is ', activePlayer)
-  $(this).html(activePlayer)
-  const i = $(this).attr('id')
-  console.log('store is ', store)
-  console.log('store.game.cells is ', store.game.cells)
-  store.game.cells[i] = activePlayer
-  console.log(store.game.cells)
-  console.log('store.game.cells is ' + store.game.cells)
-  checkForWin()
-  checkForDraw()
+  if ($(this).text() === '') {
+    turnCount += 1
+    playerTurn()
+    console.log('activePlayer is ', activePlayer)
+    $(this).html(activePlayer)
+    const i = $(this).attr('id')
+    console.log('store is ', store)
+    console.log('store.game.cells is ', store.game.cells)
+    store.game.cells[i] = activePlayer
+    console.log(store.game.cells)
+    console.log('store.game.cells is ' + store.game.cells)
+    checkForWin()
+    checkForDraw()
+    onUpdateGame(i, store.game.cells[i], store.game.over)
+    // new game logic
+  }
 })
+
 const onNewGame = () => {
   $('.col').html('')
-  console.log('in new game')
+  $('#gameStatus').html('Try to get three in a row!')
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
@@ -84,14 +107,6 @@ const onDisplayGame = () => {
     .catch(ui.displayGameFailure)
 }
 
-const onUpdateGame = () => {
-  // console.log('store.game.cells is ' + store.game.cells)
-  // console.log('here')
-  // turnCount = 0
-  api.updateGame()
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFailure)
-}
 const onGetStats = () => {
   // console.log('store.game.cells is ' + store.game.cells)
   // console.log('here')

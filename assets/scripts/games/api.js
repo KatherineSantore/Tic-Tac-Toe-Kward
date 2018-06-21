@@ -15,21 +15,38 @@ const newGame = function () {
 const displayGame = function () {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/:id',
+    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: ''
   })
 }
-const updateGame = function () {
+const updateGame = function (cellId, letter, boolean) {
+  const data = {
+    "game": {
+      "cell": {
+        "index": cellId,
+        "value": letter
+      },
+      "over": boolean
+    }
+  }
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/:id',
+    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: ''
+    data: {
+  "game": {
+    "cell": {
+      "index": cellId,
+      "value": letter
+    },
+    "over": boolean
+  }
+}
   })
 }
 const getStats = function () {

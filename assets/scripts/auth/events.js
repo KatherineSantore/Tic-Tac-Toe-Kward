@@ -7,10 +7,7 @@ const gamesEvents = require('../games/events')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('the form was submitted')
   const data = getFormFields(event.target)
-  $('#sign-up-form').html('You are signed up!')
-
   authApi.signUp(data)
     .then(authUi.signUpSuccess)
     .catch(authUi.signUpError)
@@ -18,10 +15,11 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('the form was submitted')
   const data = getFormFields(event.target)
-  $('#sign-in-form').html('You are signed in!')
-  $('#change-password-form').show()
+  $('#announcer').html('You are signed in!')
+  $('#hidden').show()
+  $('#showFirst').hide()
+
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .then(gamesEvents.onNewGame)
