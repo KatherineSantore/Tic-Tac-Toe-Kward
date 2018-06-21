@@ -34,28 +34,36 @@ const checkForWin = function () {
   for (let i = 0; i < 9; i++) {
     if (store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2] && store.game.cells[2] !== '') {
       store.game.over = true
+      $('.col').off('click')
       $('#gameStatus').html(activePlayer + ' wins!')
     } else if (store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5] && store.game.cells[5] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8] && store.game.cells[8] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6] && store.game.cells[6] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7] && store.game.cells[7] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8] && store.game.cells[8] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8] && store.game.cells[8] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6] && store.game.cells[6] !== '') {
       $('#gameStatus').html(activePlayer + ' wins!')
       store.game.over = true
+      $('.col').off('click')
     } else if (store.game.cells !== '') {
       $('#gameStatus').html('No winner yet!')
     }
@@ -70,7 +78,9 @@ const checkForDraw = function () {
     store.game.over = true
   }
 }
+// new game logic starts
 
+// new game logic stops
 $('.col').on('click', function () {
   if ($(this).text() === '') {
     turnCount += 1
@@ -86,7 +96,6 @@ $('.col').on('click', function () {
     checkForWin()
     checkForDraw()
     onUpdateGame(i, store.game.cells[i], store.game.over)
-    // new game logic
   }
 })
 
