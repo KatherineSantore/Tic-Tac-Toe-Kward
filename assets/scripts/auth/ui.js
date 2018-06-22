@@ -26,7 +26,9 @@ const changePasswordError = function (error) {
 }
 
 const signOutSuccess = function (response) {
-  console.log('You were successfully signed out')
+  $('#announcer').html('You are signed out!').toggle(6000)
+  $('#hidden').hide()
+  $('#showFirst').show()
   delete store.user
 }
 const signOutFailure = function (error) {

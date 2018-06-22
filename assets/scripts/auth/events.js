@@ -39,7 +39,6 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  $('#sign-out').html('You are signed out!')
   authApi.signOut()
     .then(authUi.signOutSuccess)
     .catch(authUi.signOutFailure)
