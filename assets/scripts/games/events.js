@@ -78,30 +78,27 @@ const checkForDraw = function () {
     store.game.over = true
   }
 }
-// new game logic starts
-
-// new game logic stops
-$('.col').on('click', function () {
-  if ($(this).text() === '') {
-    turnCount += 1
-    playerTurn()
-    console.log('activePlayer is ', activePlayer)
-    $(this).html(activePlayer)
-    const i = $(this).attr('id')
-    console.log('store is ', store)
-    console.log('store.game.cells is ', store.game.cells)
-    store.game.cells[i] = activePlayer
-    console.log(store.game.cells)
-    console.log('store.game.cells is ' + store.game.cells)
-    checkForWin()
-    checkForDraw()
-    onUpdateGame(i, store.game.cells[i], store.game.over)
-  }
-})
 
 const onNewGame = () => {
   $('.col').html('')
   $('#gameStatus').html('Try to get three in a row!')
+  $('.col').on('click', function () {
+    if ($(this).text() === '') {
+      turnCount += 1
+      playerTurn()
+      console.log('activePlayer is ', activePlayer)
+      $(this).html(activePlayer)
+      const i = $(this).attr('id')
+      console.log('store is ', store)
+      console.log('store.game.cells is ', store.game.cells)
+      store.game.cells[i] = activePlayer
+      console.log(store.game.cells)
+      console.log('store.game.cells is ' + store.game.cells)
+      checkForWin()
+      checkForDraw()
+      onUpdateGame(i, store.game.cells[i], store.game.over)
+    }
+  })
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
