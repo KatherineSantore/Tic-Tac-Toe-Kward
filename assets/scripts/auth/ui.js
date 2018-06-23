@@ -32,10 +32,13 @@ const signOutSuccess = function (response) {
   $('#announcer').html('You are signed out!').toggle(6000)
   $('#hidden').hide()
   $('#showFirst').show()
+  $('#gameStatus').html('')
+  $('.col').html('')
+
   delete store.user
 }
-const signOutFailure = function (error) {
-  console.log('something went wrong. Your error:', error)
+const signOutFailure = function (response) {
+  $('#announcer').html('You are not signed out! Try again.').toggle(6000)
 }
 
 module.exports = {

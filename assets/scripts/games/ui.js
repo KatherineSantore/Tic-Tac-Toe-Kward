@@ -4,20 +4,15 @@ const store = require('../store')
 const newGameSuccess = function (data) {
   store.game = data.game
 }
-const newGameFailure = function (error) {
-  console.log('Error in new game creation', error)
+const newGameFailure = function (response) {
 }
 const displayGameSuccess = function (data) {
-  console.log('the response is', data)
 }
-const displayGameFailure = function (error) {
-  console.log('Error in  game display', error)
+const displayGameFailure = function (response) {
 }
 const updateGameSuccess = function (data) {
-  console.log('the response is', data)
 }
-const updateGameFailure = function (error) {
-  console.log('Error in game update', error)
+const updateGameFailure = function (response) {
 }
 const getStatsSuccess = function (data) {
   console.log('the response is', data)

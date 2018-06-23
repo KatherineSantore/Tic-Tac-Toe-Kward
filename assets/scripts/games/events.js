@@ -22,9 +22,6 @@ const playerTurn = function () {
 }
 
 const onUpdateGame = (cellId, letter, boolean) => {
-  // console.log('store.game.cells is ' + store.game.cells)
-  // console.log('here')
-  // turnCount = 0
   api.updateGame(cellId, letter, boolean)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
@@ -86,15 +83,10 @@ const onNewGame = () => {
     if ($(this).text() === '') {
       turnCount += 1
       playerTurn()
-      console.log('activePlayer is ', activePlayer)
       $(this).html(activePlayer)
       const i = $(this).attr('id')
       $('#announcer').html('')
-      console.log('store is ', store)
-      console.log('store.game.cells is ', store.game.cells)
       store.game.cells[i] = activePlayer
-      console.log(store.game.cells)
-      console.log('store.game.cells is ' + store.game.cells)
       checkForWin()
       checkForDraw()
       onUpdateGame(i, store.game.cells[i], store.game.over)
@@ -106,18 +98,12 @@ const onNewGame = () => {
 }
 
 const onDisplayGame = () => {
-  // console.log('store.game.cells is ' + store.game.cells)
-  // console.log('here')
-  // turnCount = 0
   api.displayGame()
     .then(ui.displayGameSuccess)
     .catch(ui.displayGameFailure)
 }
 
 const onGetStats = () => {
-  // console.log('store.game.cells is ' + store.game.cells)
-  // console.log('here')
-  // turnCount = 0
   api.getStats()
     .then(ui.getStatsSuccess)
     .catch(ui.getStatsFailure)
