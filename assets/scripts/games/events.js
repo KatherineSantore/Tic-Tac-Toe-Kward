@@ -89,6 +89,7 @@ const onNewGame = () => {
       console.log('activePlayer is ', activePlayer)
       $(this).html(activePlayer)
       const i = $(this).attr('id')
+      $('#announcer').html('')
       console.log('store is ', store)
       console.log('store.game.cells is ', store.game.cells)
       store.game.cells[i] = activePlayer

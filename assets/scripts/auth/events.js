@@ -16,10 +16,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  $('#announcer').html('You are signed in!')
-  $('#hidden').show()
-  $('#showFirst').hide()
-
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .then(gamesEvents.onNewGame)
@@ -29,7 +25,6 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  $('#change-password-form').html('Your password is changed!')
   console.log('data is', data)
 
   authApi.changePassword(data)

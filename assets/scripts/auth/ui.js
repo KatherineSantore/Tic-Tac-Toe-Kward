@@ -6,23 +6,26 @@ const signUpSuccess = function (signUpResponse) {
   $('#sign-up-form').hide()
 }
 const signUpError = function () {
-  $('#auth_feedback').html('You are not signed up!')
+  $('#announcer').html('You are not signed up!').toggle(6000)
 }
 
 const signInSuccess = function (response) {
-  $('#announcer').html('You are signed in!').toggle(6000)
+  $('#announcer').html('You are signed in! Make your first move!')
+  $('#hidden').show()
+  $('#showFirst').hide()
+
   store.user = response.user
 }
 const signInError = function (response) {
-  $('#auth_feedback').html('Please try again!')
+  $('#announcer').html('Please try again!').toggle(6000)
 }
 
 const changePasswordSuccess = function (response) {
-  console.log('response is', response)
+  $('#change-password-form').html('Your password is changed!').toggle(6000)
 }
 
-const changePasswordError = function (error) {
-  console.log('Error in sign in is', error)
+const changePasswordError = function (response) {
+  $('#change-password-form').html('Your password is not changed! Try again.').toggle(6000)
 }
 
 const signOutSuccess = function (response) {
