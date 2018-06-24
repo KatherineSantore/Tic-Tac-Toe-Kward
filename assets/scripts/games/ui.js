@@ -15,10 +15,10 @@ const updateGameSuccess = function (data) {
 const updateGameFailure = function (response) {
 }
 const getStatsSuccess = function (data) {
-  $('#gameStats').html('You\'ve played ' + data.games.length + ' games').toggle(6000)
+  $('#gameStats').html('You\'ve played ' + data.games.length + ' games')
 }
 const getStatsFailure = function (data) {
-  $('#gameStats').html('Stats are not avilable at this time').toggle(6000)
+  $('#gameStats').html('Stats are not avilable at this time')
 }
 
 module.exports = {
