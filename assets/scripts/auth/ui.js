@@ -39,7 +39,7 @@ const signOutSuccess = function (response) {
   $('#showFirst').show()
   $('#gameStatus').html('')
   $('.col').html('')
-
+  $('#gameStats').html('')
   delete store.user
 }
 const signOutFailure = function (response) {
