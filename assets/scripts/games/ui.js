@@ -15,7 +15,6 @@ const updateGameSuccess = function (data) {
 const updateGameFailure = function (response) {
 }
 const getStatsSuccess = function (data) {
-  console.log('the response is', data)
   $('#gameStats').html('You\'ve played ' + data.games.length + ' games')
 }
 const getStatsFailure = function (data) {

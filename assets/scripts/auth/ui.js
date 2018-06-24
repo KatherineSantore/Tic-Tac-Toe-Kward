@@ -2,7 +2,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
-  $('#announcer').html('You are signed up! Now sign-in to play!')
+  $('#announcer').html('You are signed up! Now sign-in to play!').toggle(6000)
   $('#sign-up-form').hide()
 }
 const signUpError = function () {
@@ -12,20 +12,24 @@ const signUpError = function () {
 const signInSuccess = function (response) {
   $('#announcer').html('You are signed in! Make your first move!')
   $('#hidden').show()
+  $('#changep').show()
   $('#showFirst').hide()
-
+  document.getElementById('sign-in-form').reset()
   store.user = response.user
 }
 const signInError = function (response) {
   $('#announcer').html('Please try again!').toggle(6000)
+  document.getElementById('sign-in-form').reset()
 }
 
 const changePasswordSuccess = function (response) {
-  $('#change-password-form').html('Your password is changed!').toggle(6000)
+  $('#cp-message').html('Your password is changed!').toggle(6000)
+  document.getElementById('change-password-form').reset()
 }
 
 const changePasswordError = function (response) {
-  $('#change-password-form').html('Your password is not changed! Try again.').toggle(6000)
+  $('#cp-message').html.html('Your password is not changed! Try again.').toggle(6000)
+  document.getElementById('change-password-form').reset()
 }
 
 const signOutSuccess = function (response) {
