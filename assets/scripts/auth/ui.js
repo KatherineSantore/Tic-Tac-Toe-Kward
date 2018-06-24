@@ -6,7 +6,8 @@ const signUpSuccess = function (signUpResponse) {
   $('#sign-up-form').hide()
 }
 const signUpError = function () {
-  $('#announcer').html('You are not signed up!').toggle(6000)
+  $('#announcer').html('You are not signed up! Try again').toggle(6000)
+  document.getElementById('sign-up-form').reset()
 }
 
 const signInSuccess = function (response) {
