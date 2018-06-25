@@ -29,7 +29,7 @@ const changePasswordSuccess = function (response) {
 }
 
 const changePasswordError = function (response) {
-  $('#cp-message').html.html('Your password is not changed! Try again.').toggle(6000)
+  $('#cp-message').html('Your password is not changed! Try again.').toggle(6000)
   document.getElementById('change-password-form').reset()
 }
 
