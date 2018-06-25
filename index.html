@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="form">
+    <div id="announcer"> <h2>Sign Up or Sign In to Begin Playing! </h2> </div>
+  <div id='showFirst'>
+ <div id="auth_feedback"> </div>
+  <form id='sign-up-form'>
+     <h3> Sign Up </h3>
+    <input name="credentials[email]" placeholder="Email" type="email"/>
+    <input name="credentials[password]" type="password" placeholder="Password"/>
+    <input name="credentials[password_confirmation]" placeholder="Password Confirmation"
+    type="password"/>
+    <button type="submit">Sign up</button>
+  </form>
+
+  <h3> Sign In </h3>
+  <form id='sign-in-form'>
+    <input name="credentials[email]" placeholder="Email" type="email"/>
+    <input name="credentials[password]" type="password" placeholder="Password"/>
+    <button type="submit">Log In</button>
+  </div>
+  </form>
+  <br>
+        <h1>Tic Tac Toe </h1>
+
+        <div id='gameStatus'>
+          <p>  </p>
+        </div>
+        <div class="board">
+<div class="rowA">
+          <div class="col" id=0> </div>
+          <div class="col" id=1> </div>
+          <div class="col" id=2> </div>
+        </div>
+
+        <div class="rowB">
+          <div class="col" id=3> </div>
+          <div class="col" id=4> </div>
+          <div class="col" id=5> </div>
+      </div>
+
+        <div class="rowC">
+          <div class="col" id=6> </div>
+          <div class="col" id=7> </div>
+          <div class="col" id=8> </div>
+        </div>
+      </div>
+        <br>
+        <div id='hidden'>
+          <button id='resetGame' type='button' > New Game </button>
+          <br><br>
+
+          <div id="gameStats">  </div>
+
+          <button id='statsButton' type='button' > Game Stats </button>
+          <br>
+            <h3> Change Password </h3>
+          <form id='change-password-form'>
+            <input name="passwords[old]" placeholder="Old Password" type="password"/>
+            <input name="passwords[new]" type="password" placeholder="New Password"/>
+            <button type="submit">Change Password</button>
+            <div id='cp-message'> </div>
+            </form>
+            <div id='sign-out'>
+            <button> Sign Out </button>
+            </div>
+           <br><br>
+          </div>
+          </div>
+  </body>
+
+</html>
